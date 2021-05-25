@@ -5,9 +5,10 @@ let interval;
 
 /* Display Time */
 function displayTime() {
-  time.textContent = `Time: ${new Date().getHours()}:${new Date().getMinutes()} ${
-    new Date().getHours() <= 12 ? `AM` : `PM`
-  }`;
+  const hour = new Date().getHours();
+  const mins = new Date().getMinutes();
+  const prefix_0 = mins <= 9 ? `0${mins}` : mins;
+  time.textContent = `Time: ${hour}:${prefix_0} ${hour <= 12 ? `AM` : `PM`}`;
 }
 
 displayTime();
