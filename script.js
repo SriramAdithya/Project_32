@@ -1,6 +1,19 @@
 const image = document.querySelector('#image');
 const animateBtn = document.querySelector('#btn__animate');
+const time = document.querySelector('#time');
 let interval;
+
+/* Display Time */
+function displayTime() {
+  time.textContent = `Time: ${new Date().getHours()}:${new Date().getMinutes()} ${
+    new Date().getHours() <= 12 ? `AM` : `PM`
+  }`;
+}
+
+displayTime();
+setInterval(displayTime, 1000);
+
+/* Display Image */
 
 // prettier-ignore
 const imageSource = src => image.src = src;
@@ -28,6 +41,8 @@ async function getHour() {
 }
 
 getHour();
+
+/* Animate */
 
 function animate() {
   let currImg = 0;
